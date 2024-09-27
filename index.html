@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional appliance repair services for all types of household appliances. Quick, reliable, and customer-focused.">
+    <title>Appliance Repair & Servicing</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .service {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .service h3, .service p {
+            z-index: 2;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .service::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        /* Replace these background URLs with your actual image URLs */
+        .ac-service {
+            background-image: url('download.jpeg');
+        }
+        .fridge-service {
+            background-image: url('https://via.placeholder.com/800x200?text=Fridge+Repair');
+        }
+        .washing-machine-service {
+            background-image: url('https://via.placeholder.com/800x200?text=Washing+Machine+Repair');
+        }
+        .cooler-service {
+            background-image: url('https://via.placeholder.com/800x200?text=Cooler+Repair');
+        }
+        .oven-service {
+            background-image: url('https://via.placeholder.com/800x200?text=Oven+Repair');
+        }
+        .dishwasher-service {
+            background-image: url('https://via.placeholder.com/800x200?text=Dishwasher+Repair');
+        }
+        .booking-box {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .submit-banner {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #007bff;
+            padding: 30px;
+            color: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #007bff;
+            color: white;
+            font-size: 20px;
+        }
+        @media (max-width: 600px) {
+            .service, .booking-box {
+                padding: 10px;
+            }
+            .submit-banner {
+                font-size: 18px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Appliance Repair & Servicing</h1>
+    <p>Your trusted partner for all appliance repairs and maintenance needs.</p>
+</header>
+
+<section>
+    <h2>Our Comprehensive Services</h2>
+    <div class="service ac-service">
+        <h3>Air Conditioning Services</h3>
+        <p>Expert repair and servicing for all brands and models of air conditioners, ensuring optimal cooling performance.</p>
+    </div>
+    <div class="service fridge-service">
+        <h3>Refrigerator Repair</h3>
+        <p>Fast and reliable repair services for all types of refrigerators, including maintenance to extend lifespan.</p>
+    </div>
+    <div class="service washing-machine-service">
+        <h3>Washing Machine Repair</h3>
+        <p>Professional repairs and routine maintenance for washing machines, tackling any issues quickly.</p>
+    </div>
+    <div class="service cooler-service">
+        <h3>Cooler Repair</h3>
+        <p>Efficient repair and servicing for all types of coolers, keeping you comfortable during hot days.</p>
+    </div>
+    <div class="service oven-service">
+        <h3>Oven and Stove Repair</h3>
+        <p>Comprehensive servicing for ovens and stoves, ensuring your cooking appliances are safe and functional.</p>
+    </div>
+    <div class="service dishwasher-service">
+        <h3>Dishwasher Services</h3>
+        <p>Reliable repairs for all dishwasher brands, ensuring your dishes come out clean every time.</p>
+    </div>
+</section>
+
+<section class="booking-box">
+    <h2>Book Your Appointment</h2>
+    <form id="bookingForm">
+        <label for="appliance">Choose Appliance:</label>
+        <select id="appliance" name="appliance" required>
+            <option value="" disabled selected>Select an appliance</option>
+            <option value="AC">Air Conditioner</option>
+            <option value="Fridge">Refrigerator</option>
+            <option value="Cooler">Cooler</option>
+            <option value="WashingMachine">Washing Machine</option>
+        </select>
+        <br><br>
+        <label for="time">Select Date:</label>
+        <input type="date" id="time" name="time" required>
+        <br><br>
+        <label for="phone">Your Mobile Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <br><br>
+        <button type="submit">Submit Booking</button>
+    </form>
+</section>
+
+<section class="contact">
+    <p>For immediate assistance, you can also contact us via WhatsApp!</p>
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="whatsapp">Contact on WhatsApp</a>
+</section>
+
+<div class="submit-banner" id="submitBanner">
+    <p>Your booking will be processed and confirmed shortly!</p>
+</div>
+
+<footer>
+    <p>&copy; 2024 Appliance Repair Services. All rights reserved.</p>
+</footer>
+
+<script>
+    // Set min date to today
+    document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date().toISOString().split("T")[0];
+        const timeInput = document.getElementById('time');
+        timeInput.min = today;
+    });
+
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const appliance = document.getElementById('appliance').value;
+        const time = document.getElementById('time').value;
+        const phone = document.getElementById('phone').value;
+
+        const message = `New Booking:\nAppliance: ${appliance}\nDate: ${time}\nPhone: ${phone}`;
+
+        // Optional: Send data to Telegram (uncomment and adjust for your bot)
+        
+        const telegramMessage = encodeURIComponent(message);
+        const telegramBotToken = '5214279030:AAHwXVkouOpHANC1EiK6edh_ux4cFqoZ-OY';
+        const chatId = '-1001570223088';
+        fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${telegramMessage}`);
+
+        // Show the submit banner
+        const submitBanner = document.getElementById('submitBanner');
+        submitBanner.style.display = 'flex';
+
+        // Hide the submit banner after 3 seconds
+        setTimeout(() => {
+            submitBanner.style.display = 'none';
+        }, 3000);
+
+        // Reset the form
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
