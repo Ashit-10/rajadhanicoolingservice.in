@@ -618,10 +618,12 @@
 
     <script>
 window.addEventListener("load", function() {
-        // Remove hash from the URL without reloading the page
+        // Check if there is a hash in the URL
         if (window.location.hash) {
+            // Remove the hash and redirect to homepage
             window.history.replaceState(null, null, window.location.href.split('#')[0]);
-            location.reload();
+            // Redirect to the homepage after clearing the hash
+            window.location.href = 'https://rajadhanicoolingservice.in/';  // Replace '/' with your homepage URL if needed
         }
     });
 
