@@ -617,7 +617,12 @@
     </footer>
 
     <script>
-
+window.addEventListener("load", function() {
+        // Remove hash from the URL without reloading the page
+        if (window.location.hash) {
+            window.history.replaceState(null, null, window.location.href.split('#')[0]);
+        }
+    });
 
         document.getElementById('bookingForm').addEventListener('submit', function (event) {
             event.preventDefault();
