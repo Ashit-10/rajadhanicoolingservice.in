@@ -55,78 +55,21 @@
             /* Align logo with text */
         }
 
- .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #333;
-      padding: 10px 20px;
-      color: white;
-      flex-wrap: wrap; /* This allows items to wrap when the screen is too small */
-  }
 
-  .navbar a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 15px;
-  }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            color: white;
+        }
 
-  .contact-icons {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-  }
-
-  /* Make it mobile responsive */
-  @media (max-width: 768px) {
-      .navbar {
-          flex-direction: column;
-          align-items: flex-start; /* Stack items vertically */
-      }
-
-      .email, .opening-days, .book-now, .contact-icons {
-          padding: 5px 0;
-          text-align: left;
-          width: 100%;
-      }
-
-      .book-now {
-          margin-top: 10px;
-          background-color: #555;
-          padding: 10px;
-          text-align: center;
-          display: block;
-          width: 70%;
-      }
-
-      .contact-icons {
-          justify-content: space-between;
-          width: 100%;
-      }
-
-      .contact-icons img {
-          width: 30px; /* Resize the icons for smaller screens */
-      }
-  }
-
-  /* Adjustments for very small screens */
-  @media (max-width: 480px) {
-      .navbar {
-          padding: 5px 10px;
-      }
-
-      .email, .opening-days {
-          font-size: 14px;
-      }
-
-      .book-now {
-          padding: 10px;
-      }
-
-      .contact-icons img {
-          width: 25px;
-      }
-  }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
 
         .services-dropdown {
             position: relative;
@@ -508,7 +451,7 @@
                 <img src="images/ac.jfif" alt="Refrigerator Repair" />
             </div>
             <div class="text-container">
-                <h3><u>Refrigerator Repair</u></h3>
+                <h3><u>Air conditioner Repair</u></h3>
                 Fast and reliable repair services for all types of refrigerators, including maintenance to extend
                 lifespan.
                 <p></p>
@@ -518,7 +461,7 @@
         <br>
         <div class="container">
             <div class="image-container">
-                <img src="images/ac.jfif" alt="Refrigerator Repair" />
+                <img src="images/fridge.jfif" alt="Refrigerator Repair" />
             </div>
             <div class="text-container">
                 <h3>Refrigerator Repair</h3>
@@ -532,10 +475,10 @@
 
         <div class="container">
             <div class="image-container">
-                <img src="images/ac.jfif" alt="Refrigerator Repair" />
+                <img src="images/washing.jfif" alt="Refrigerator Repair" />
             </div>
             <div class="text-container">
-                <h3>Refrigerator Repair</h3>
+                <h3>Washing machine Repair</h3>
                 Fast and reliable repair services for all types of refrigerators, including maintenance to extend
                 lifespan.
                 <p></p>
@@ -545,10 +488,10 @@
         <br>
         <div class="container">
             <div class="image-container">
-                <img src="images/ac.jfif" alt="Refrigerator Repair" />
+                <img src="images/micro.jfif" alt="Refrigerator Repair" />
             </div>
             <div class="text-container">
-                <h3>Refrigerator Repair</h3>
+                <h3>Microwave Oven Repair</h3>
                 Fast and reliable repair services for all types of refrigerators, including maintenance to extend
                 lifespan.
                 <p></p>
@@ -558,10 +501,23 @@
         <br>
         <div class="container">
             <div class="image-container">
-                <img src="images/ac.jfif" alt="Refrigerator Repair" />
+                <img src="images/water.jfif" alt="Refrigerator Repair" />
             </div>
             <div class="text-container">
-                <h3>Refrigerator Repair</h3>
+                <h3>Water purifier Repair</h3>
+                Fast and reliable repair services for all types of refrigerators, including maintenance to extend
+                lifespan.
+                <p></p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class="image-container">
+                <img src="images/led.jfif" alt="Refrigerator Repair" />
+            </div>
+            <div class="text-container">
+                <h3>LED TV Repair</h3>
                 Fast and reliable repair services for all types of refrigerators, including maintenance to extend
                 lifespan.
                 <p></p>
@@ -617,15 +573,7 @@
     </footer>
 
     <script>
-window.addEventListener("load", function() {
-        // Check if there is a hash in the URL
-        if (window.location.hash) {
-            // Remove the hash and redirect to homepage
-            window.history.replaceState(null, null, window.location.href.split('#')[0]);
-            // Redirect to the homepage after clearing the hash
-            window.location.href = '/';  // Replace '/' with your homepage URL if needed
-        }
-    });
+
 
         document.getElementById('bookingForm').addEventListener('submit', function (event) {
             event.preventDefault();
