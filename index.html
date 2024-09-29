@@ -1,29 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional appliance repair services for all types of household appliances. Quick, reliable, and customer-focused.">
+    <meta name="description"
+        content="Professional appliance repair services for all types of household appliances. Quick, reliable, and customer-focused.">
     <title>Appliance Repair & Servicing</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
         }
+
         header {
-            background-color: #007bff;
+            position: relative;
             color: white;
-            padding: 20px;
             text-align: center;
         }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            /* Place the video behind other content */
+        }
+
+        .header-content {
+            position: relative;
+            /* Ensure the content appears above the video */
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent background */
+            /* display: inline-block; */
+            /* Ensures background fits tightly around text */
+        }
+
+        .logo {
+            height: 80px;
+            margin-right: 15px;
+            /* vertical-align: middle; */
+            /* display: inline-block; */
+            /* Align logo with text */
+        }
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        .services-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .services-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .book-now {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .book-now:hover {
+            background-color: #218838;
+        }
+
+        .contact-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-icons img {
+            width: 20px;
+            /* Adjust size as needed */
+            margin-right: 8px;
+        }
+
         section {
             padding: 20px;
             max-width: 800px;
             margin: auto;
         }
+
         .service {
             margin-bottom: 20px;
             padding: 15px;
@@ -32,19 +136,22 @@
             color: white;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            height: 200px;
+            height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
         }
-        .service h3, .service p {
+
+        .service h3,
+        .service p {
             z-index: 2;
             text-align: center;
             background-color: rgba(0, 0, 0, 0.5);
             padding: 10px;
             border-radius: 5px;
         }
+
         .service::before {
             content: "";
             position: absolute;
@@ -55,50 +162,96 @@
             background-color: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
+
         /* Replace these background URLs with your actual image URLs */
         .ac-service {
-            background-image: url('download.jpeg');
+            background-image: url('images/ac.jfif');
         }
+
         .fridge-service {
-            background-image: url('https://via.placeholder.com/800x200?text=Fridge+Repair');
+            background-image: url('images/fridge.jfif');
         }
+
         .washing-machine-service {
-            background-image: url('https://via.placeholder.com/800x200?text=Washing+Machine+Repair');
+            background-image: url('images/washing.jfif');
         }
-        .cooler-service {
-            background-image: url('https://via.placeholder.com/800x200?text=Cooler+Repair');
-        }
+
         .oven-service {
-            background-image: url('https://via.placeholder.com/800x200?text=Oven+Repair');
+            background-image: url('images/micro.jfif');
         }
-        .dishwasher-service {
-            background-image: url('https://via.placeholder.com/800x200?text=Dishwasher+Repair');
+
+        .water-service {
+            background-image: url('images/water.jfif');
         }
-        .booking-box {
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 30px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+
+        .led-service {
+            background-image: url('images/led.jfif');
         }
-        .submit-banner {
-            display: none;
+
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-image: url('images/bbsr.jfif');
+            /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Dark overlay for better text visibility */
+            display: flex;
             justify-content: center;
             align-items: center;
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #007bff;
-            padding: 30px;
-            color: white;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 700px;
-            text-align: center;
-            font-size: 22px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
+        .submit-form {
+            background: linear-gradient(to bottom right, #A0D1E7, #005F8C);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+            /* Set a fixed width for the form */
+        }
+
+        .submit-form h2 {
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+
+        .submit-form input,
+        .submit-form select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-form button {
+            background-color: #FF5722;
+            /* Bright color for the button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-form button:hover {
+            background-color: #e64a19;
+            /* Darker shade on hover */
+        }
+
         button {
             background-color: #28a745;
             color: white;
@@ -109,9 +262,11 @@
             font-size: 16px;
             width: 100%;
         }
+
         button:hover {
             background-color: #218838;
         }
+
         footer {
             text-align: center;
             padding: 40px;
@@ -119,124 +274,451 @@
             color: white;
             font-size: 20px;
         }
+
+        #foot {
+            display: none;
+        }
+
         @media (max-width: 600px) {
-            .service, .booking-box {
+
+            .service,
+            .booking-box {
                 padding: 10px;
             }
+
             .submit-banner {
                 font-size: 18px;
                 padding: 20px;
             }
         }
+
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745;
+            /* Green background */
+            color: white;
+            /* White text */
+            width: 100px;
+            /* Fixed width for perfect circle */
+            height: 100px;
+            /* Fixed height for perfect circle */
+            border-radius: 50%;
+            /* Fully rounded */
+            display: flex;
+            /* Center icon */
+            align-items: center;
+            /* Center vertically */
+            justify-content: center;
+            /* Center horizontally */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            /* Ensure it stays on top */
+            transition: background-color 0.3s;
+        }
+
+        .call-button a {
+            text-decoration: none;
+            /* Remove underline */
+            color: white;
+        }
+
+        .call-button:hover {
+            background-color: #218838;
+            /* Darker green on hover */
+        }
+
+        .book-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #f51010;
+            /* Green background */
+            color: rgb(255, 255, 255);
+            /* White text */
+            width: 100px;
+            /* Fixed width for perfect circle */
+            height: 100px;
+            /* Fixed height for perfect circle */
+            border-radius: 50%;
+            /* Fully rounded */
+            display: flex;
+            /* Center icon */
+            align-items: center;
+            /* Center vertically */
+            justify-content: center;
+            /* Center horizontally */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            /* Ensure it stays on top */
+            transition: background-color 0.3s;
+        }
+
+        .book-button a {
+            text-decoration: none;
+            /* Remove underline */
+            color: white;
+        }
+
+        .book-button:hover {
+            background-color: #3d27fa;
+            /* Darker green on hover */
+        }
+
+        #submittext {
+            display: none;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            /* Center items vertically */
+            background-color: #fff;
+            /* Optional: Background color */
+            border-radius: 8px;
+            /* Optional: Rounded corners */
+            box-shadow: 0 4px 20px rgba(250, 248, 248, 0.5);
+            /* Deep shadow effect */
+            padding: 20px;
+            /* Optional: Padding inside the container */
+            margin: 20px;
+            /* Optional: Margin around the container */
+        }
+
+        .image-container {
+            flex: 1;
+            /* Takes up half of the space */
+        }
+
+        .image-container img {
+            max-width: 100%;
+            /* Responsive image */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        .text-container {
+            flex: 1;
+            /* Takes up half of the space */
+            padding-left: 20px;
+            /* Space between image and text */
+        }
     </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Appliance Repair & Servicing</h1>
-    <p>Your trusted partner for all appliance repairs and maintenance needs.</p>
-</header>
+    <header>
+        <video autoplay muted loop class="background-video">
+            <source src="images/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="header-content">
+            <img src="images/logopng.PNG" alt="Rajadhani Cooling Logo" class="logo">
+            <h1>Rajadhani Cooling Repair & Servicing</h1>
+            <p>Your trusted partner for all appliance repairs and maintenance needs.</p>
+        </div>
+    </header>
 
-<section>
-    <h2>Our Comprehensive Services</h2>
-    <div class="service ac-service">
-        <h3>Air Conditioning Services</h3>
-        <p>Expert repair and servicing for all brands and models of air conditioners, ensuring optimal cooling performance.</p>
+
+
+    <div class="call-button">
+        <a href="tel:+919668700452">📞 Call Us</a>
     </div>
-    <div class="service fridge-service">
-        <h3>Refrigerator Repair</h3>
-        <p>Fast and reliable repair services for all types of refrigerators, including maintenance to extend lifespan.</p>
+    <div class="book-button">
+        <a href="#submit-box">Book Now</a>
     </div>
-    <div class="service washing-machine-service">
-        <h3>Washing Machine Repair</h3>
-        <p>Professional repairs and routine maintenance for washing machines, tackling any issues quickly.</p>
+    <div class="navbar">
+        <div class="email">Email: rajadhanicollingservice@gmail.com</div>
+        <div class="opening-days">Opening Days: All day open, 8 AM - 8 PM</div>
+
+        <a href="#submit-box" class="book-now">Book Now</a>
+
+        <div class="contact-icons">
+            <a href="tel:+919668700452">
+                <img src="images/call_logo.png" alt="Call" style="width: 40px; height: auto;" />+91 9668700452
+            </a>
+            <a href="https://wa.me/9668700452" target="_blank">
+                <img src="images/whatsapp_logo.png" alt="WhatsApp" />
+            </a>
+        </div>
     </div>
-    <div class="service cooler-service">
-        <h3>Cooler Repair</h3>
-        <p>Efficient repair and servicing for all types of coolers, keeping you comfortable during hot days.</p>
+    <section>
+        <h2>Our Comprehensive Services</h2>
+        <div class="container">
+            <div class="image-container">
+                <img src="images/ac.jfif" alt="Refrigerator Repair" />
+            </div>
+            <div class="text-container">
+                <h3><u>Refrigerator Repair</u></h3>
+                Fast and reliable repair services for all types of refrigerators, including maintenance to extend
+                lifespan.
+                <p></p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class="image-container">
+                <img src="images/ac.jfif" alt="Refrigerator Repair" />
+            </div>
+            <div class="text-container">
+                <h3>Refrigerator Repair</h3>
+                Fast and reliable repair services for all types of refrigerators, including maintenance to extend
+                lifespan.
+                <p></p>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="container">
+            <div class="image-container">
+                <img src="images/ac.jfif" alt="Refrigerator Repair" />
+            </div>
+            <div class="text-container">
+                <h3>Refrigerator Repair</h3>
+                Fast and reliable repair services for all types of refrigerators, including maintenance to extend
+                lifespan.
+                <p></p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class="image-container">
+                <img src="images/ac.jfif" alt="Refrigerator Repair" />
+            </div>
+            <div class="text-container">
+                <h3>Refrigerator Repair</h3>
+                Fast and reliable repair services for all types of refrigerators, including maintenance to extend
+                lifespan.
+                <p></p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class="image-container">
+                <img src="images/ac.jfif" alt="Refrigerator Repair" />
+            </div>
+            <div class="text-container">
+                <h3>Refrigerator Repair</h3>
+                Fast and reliable repair services for all types of refrigerators, including maintenance to extend
+                lifespan.
+                <p></p>
+            </div>
+        </div>
+        <br>
+        <br>
+    </section>
+
+    <section class="booking-box" id="submit-box">
+        <h2>Book Your Appointment</h2>
+        <div class="banner">
+            <div class="overlay">
+                <form id="bookingForm" class="submit-form">
+                    <h2>Book Now!</h2>
+                    <label for="appliance">Choose Appliance:</label>
+                    <select id="appliance" name="appliance" required>
+                        <option value="" disabled selected>Select an item to repair</option>
+                        <option value="AC">Air Conditioner</option>
+                        <option value="Fridge">Refrigerator</option>
+                        <option value="Micro">Microwave oven</option>
+                        <option value="Wash">Washing machine</option>
+                        <option value="Water">Water purifier</option>
+                        <option value="Led">LED TV</option>
+                    </select>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                    <input type="tel" id="phone" placeholder="Enter your mobile number" required pattern="[0-9]{10}"
+                        title="Please enter a 10-digit mobile number">
+                    <input type="text" id="address" placeholder="Enter your address" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact"
+        style="text-align: center; padding: 20px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 24px; color: #333;">Need Immediate Assistance?</h2>
+        <p style="font-size: 16px; color: #555;">We're here to help! Reach out to us on WhatsApp for quick support.</p>
+        <a href="https://wa.me/9668700452" class="whatsapp"
+            style="display: inline-block; margin-top: 10px; padding: 12px 20px; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s;">
+            Contact on WhatsApp
+        </a>
+    </section>
+
+
+    <div class="submit-banner" id="submittext">
+        <p>Your booking will be processed and confirmed shortly!</p>
     </div>
-    <div class="service oven-service">
-        <h3>Oven and Stove Repair</h3>
-        <p>Comprehensive servicing for ovens and stoves, ensuring your cooking appliances are safe and functional.</p>
-    </div>
-    <div class="service dishwasher-service">
-        <h3>Dishwasher Services</h3>
-        <p>Reliable repairs for all dishwasher brands, ensuring your dishes come out clean every time.</p>
-    </div>
-</section>
 
-<section class="booking-box">
-    <h2>Book Your Appointment</h2>
-    <form id="bookingForm">
-        <label for="appliance">Choose Appliance:</label>
-        <select id="appliance" name="appliance" required>
-            <option value="" disabled selected>Select an appliance</option>
-            <option value="AC">Air Conditioner</option>
-            <option value="Fridge">Refrigerator</option>
-            <option value="Cooler">Cooler</option>
-            <option value="WashingMachine">Washing Machine</option>
-        </select>
-        <br><br>
-        <label for="time">Select Date:</label>
-        <input type="date" id="time" name="time" required>
-        <br><br>
-        <label for="phone">Your Mobile Number:</label>
-        <input type="tel" id="phone" name="phone" required>
-        <br><br>
-        <button type="submit">Submit Booking</button>
-    </form>
-</section>
+    <footer>
+        <p>&copy; 2024 Appliance Repair Services. All rights reserved.</p>
+    </footer>
 
-<section class="contact">
-    <p>For immediate assistance, you can also contact us via WhatsApp!</p>
-    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="whatsapp">Contact on WhatsApp</a>
-</section>
+    <script>
 
-<div class="submit-banner" id="submitBanner">
-    <p>Your booking will be processed and confirmed shortly!</p>
-</div>
 
-<footer>
-    <p>&copy; 2024 Appliance Repair Services. All rights reserved.</p>
-</footer>
+        document.getElementById('bookingForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-<script>
-    // Set min date to today
-    document.addEventListener('DOMContentLoaded', function() {
-        const today = new Date().toISOString().split("T")[0];
-        const timeInput = document.getElementById('time');
-        timeInput.min = today;
-    });
+            const appliance = document.getElementById('appliance').value;
+            const phone = document.getElementById('phone').value;
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
 
-    document.getElementById('bookingForm').addEventListener('submit', function(event) {
-        event.preventDefault();
+            const message = `#New_Booking:\n\nAppliance: ${appliance}\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
+            console.log(message);
+            // Optional: Send data to Telegram (uncomment and adjust for your bot)
 
-        const appliance = document.getElementById('appliance').value;
-        const time = document.getElementById('time').value;
-        const phone = document.getElementById('phone').value;
+            const telegramMessage = encodeURIComponent(message);
+            const telegramBotToken = '5214279030:AAHwXVkouOpHANC1EiK6edh_ux4cFqoZ-OY';
+            const chatId = '-1001570223088';
+            fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${telegramMessage}`);
 
-        const message = `New Booking:\nAppliance: ${appliance}\nDate: ${time}\nPhone: ${phone}`;
+            // Show the submit banner
+            // Show the alert
+            alert("Your booking will be processed and confirmed shortly!");
+            // Reload the page
+            location.reload();
+            // const submitBanner = document.getElementById('submittext');
+            // submitBanner.style.display = 'flex';
 
-        // Optional: Send data to Telegram (uncomment and adjust for your bot)
-        
-        const telegramMessage = encodeURIComponent(message);
-        const telegramBotToken = '5214279030:AAHwXVkouOpHANC1EiK6edh_ux4cFqoZ-OY';
-        const chatId = '-1001570223088';
-        fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${telegramMessage}`);
+            // Hide the submit banner after 3 seconds
+            // setTimeout(() => {
+            //     submitBanner.style.display = 'none';
+            // }, 3000);
 
-        // Show the submit banner
-        const submitBanner = document.getElementById('submitBanner');
-        submitBanner.style.display = 'flex';
-
-        // Hide the submit banner after 3 seconds
-        setTimeout(() => {
-            submitBanner.style.display = 'none';
-        }, 3000);
-
-        // Reset the form
-        this.reset();
-    });
-</script>
+            // Reset the form
+            // this.reset();
+        });
+    </script>
 
 </body>
+<p id="foot">
+    Ac Repair Near me in Bhubaneswar, air conditioner repair, AC Customer Care Number,aircon servicing, aircon repair,
+    ac maintenance, ac repair and service, air conditioning contractors, ac installation companies, window air
+    conditioner repair, air conditioning installation contractor,Air Conditioning installation in Bhubaneswar, split ac
+    installation, ac fix, refrigerator technician, ac repair company, air conditioner maintenance service, ac
+    installation service, refrigeration services, best aircon servicing, AC Gas Filing in Bhubaneswar, ac repair in
+    bhubaneswar, ac installation contractor, fix air conditioner, AC service mechanic in Bhubaneswar, ac unit
+    maintenance, home air conditioner repair, ac replacement cost, ac installation cost, window ac installation, ac
+    repair, split ac, window air conditioner installation, air conditioner installation cost, 1.5 ton split ac repir in
+    bhubaneswar, aircon installation, split ac 1 ton, ac maintenance, ac split, ac window, ac gas filling, ac repairing
+    charges cost, split type aircon installation in bhubaneswar, split ac installation charges, 1 ton split ac reapair,
+    split air conditioner installation, office ac repair, residential ac repair servicing, 2 ton split ac repair, 1 ton
+    inverter ac repair, ac gas filling near me in bhubaneswar, ac installation service in bhubaneswar patia, ac
+    repairing in acharya vihar bhubaneswar , ac repair in rasulgarh bhubaneswar , ac repair in baramunda , ac repair in
+    jayadev vihar, ac repair near crp square bbsr, ac reapir in kalpana area bhubaneswar, Hiatchi Ac repairing, Bluestar
+    Ac Repairing, Voltas Ac Repairing, Carrier Ac Repairing, Goderj Ac Repair in Bhubaneswar, Godrej Eon Ac Repairing,
+    Lloyd Ac Repairing, Havels lloyd Ac Repairing, Panasonic Ac Repairing Gas filling in Bhubaneswar Nayapalli, AC
+    Repairing, AC Installation, New AC, AC repairing in Bhubaneswar, AC Bhubaneswar, AC Repair BBSR, AC HVAC EXPERT
+    BBSR, AC Mechanic Bhubaneswar, AC Repairing website, AC Mechanic Book Online, AC Repairing Online, Bhubaneswar AC
+    Repairing, LG Ac Repairing, Hitachi AC Repairing, Daikin AC, Voltas AC Repiring, AC Service Center in Bhubaneswar,
+    Rajadhani cooling services Services, Rajadhani cooling services Ac Repairing, Rajadhani cooling services Fridge Ac
+    Repairing, Rajadhani cooling services Refridgerator Repairing, Refrigerator Repair service near me, ac repair in
+    bhubaneswar patia, fridge repair near me, refrigerator price in bhubaneswar, car ac repair in bhubaneswar, car ac
+    repair near me, best ac for small room, fridge mechanic near me, best ac service in bhubaneswar, sulekha ac service
+    centre bbsr, sulekha ac service centre bhubaneswar, Khojakhoji Ac Repairing in Bhubaneswar and Cuttack, samsung mini
+    fridge, freeze mechanic near me, washing machine repair, fridge repair in bhubaneswar, voltas ac service center in
+    bhubaneswar, ac mechanic bhubaneswar, ac repairing course in bhubaneswar, ac repairing bhubaneswar, ac repairing in
+    bhubaneswar, ac mechanic in bhubaneswar, ac repair services in bhubaneswar, car ac repair in bhubaneswar,
+    refrigerator repair in bhubaneswar, ac service bhubaneswar, ac repairing bhubaneswar, samsung ac service
+    bhubaneswar, lg ac service bhubaneswar, lg ac service center bhubaneswar, lg ac service centre bhubaneswar, voltas
+    ac service centre bhubaneswar, voltas ac service center bhubaneswar, samsung ac service centre bhubaneswar, hitachi
+    ac service center bhubaneswar, hitachi ac service centre bhubaneswar, ac installation and repair in bhubaneswar,
+    best ac repair in bhubaneswar, ac repair service near me, fridge repair in bhubaneswar, fridge repair near me,
+    samsung ac service center bhubaneswar, godrej ac service centre bhubaneswar, daikin ac service centre bhubaneswar,
+    ac servicing in bhubaneswar, ac repairing in bhubaneswar, ac service center in bhubaneswar, ac bus service in
+    bhubaneswar, samsung ac service in bhubaneswar, ac service centre in bhubaneswar, bhubaneswar ac, olx ac
+    bhubaneswar, voltas ac bhubaneswar, hitachi ac bhubaneswar, lloyd ac bhubaneswar, ac bus bhubaneswar to puri,
+    carrier ac bhubaneswar, daikin ac bhubaneswar, ac installation and repair in bhubaneswar, ac bhubaneswar, ac amc
+    bhubaneswar, ac on rent at bhubaneswar, hitachi ac dealer bhubaneswar, voltas ac dealer bhubaneswar, bluestar ac
+    dealer bhubaneswar, ac on emi bhubaneswar, ac installation bhubaneswar, ac in bhubaneswar, used ac in bhubaneswar,
+    ac dealers in bhubaneswar, ac showroom in bhubaneswar, ac repair in bhubaneswar, ac buses in bhubaneswar, ac pg in
+    bhubaneswar, kenstar ac bhubaneswar, lg ac bhubaneswar, ac mechanic bhubaneswar, ac nielsen bhubaneswar, voltas ac
+    bhubaneswar office, ac price bhubaneswar, phulwari ac bhubaneswar, quikr bhubaneswar ac, ac repair bhubaneswar, Ac
+    maintenance Contract bhubaneswar, Ac maintenance Service Bhubaneswar, ac on rent bhubaneswar, ac service
+    bhubaneswar, samsung ac service bhubaneswar, lg ac service bhubaneswar, ac for sale bhubaneswar, Ac installation and
+    repairing in Cuttack, AC repairing in KATAK, AC Service in Katak, Cuttack AC, sharp ac bhubaneswar, used ac
+    bhubaneswar, Car Ac Patia Bhubaneswar, used ac Cuttack, Ac Fridge Home Appliances Repairing Bhubaneswar, Ac
+    Repairing in Cuttack, Fridge Repairing in Bhubaneswar, Fridge Repairing in Cuttack, ac repair company, air
+    conditioner maintenance service, ac installation service, refrigeration services, best aircon servicing, fix air
+    conditioner, ac service machine, ac unit maintenance, home air conditioner repair, ac replacement cost, ac
+    installation cost, window ac installation, ac repair, split ac, window air conditioner installation, air conditioner
+    installation cost, 1.5 ton split ac repir in bhubaneswar, aircon installation, split ac 1 ton, ac maintenance, AC
+    Repair in Bhubaneswar, Repair, Install AC & Other Home Appliances, ac repair, air conditioner repair, air
+    conditioning installation, aircon servicing, aircon repair, ac maintenance, ac repair and service, air conditioning
+    contractors, ac installation companies, window air conditioner repair, air conditioning installation contractor, ac
+    repair in bhubaneswar, ac installation contractor, split ac installation, ac fix, refrigerator technician, ac split,
+    ac window, ac gas filling, ac repairing charges cost, split type aircon installation in bhubaneswar, split ac
+    installation charges, 1 ton split ac reapair, split air conditioner installation, office ac repair, residential ac
+    repair servicing, 2 ton split ac repair, 1 ton inverter ac repair, ac gas filling near me in bhubaneswar, ac
+    installation service in bhubaneswar patia, ac repairing in acharyavihar bhubaneswar, ac repair in rasulgarh
+    bhubaneswar, ac repair in baramunda, ac repair in jayadev vihar, ac repair near crp square bbsr, ac reapir in
+    kalpana area bhubaneswar AC Installation, New AC, AC repairing in Bhubaneswar, AC Bhubaneswar, AC Repair BBSR, AC
+    HVAC EXPERT BBSR, AC Mechanic Bhubaneswar, AC Repairing website, AC Mechanic Book Online, AC Repairing Online,
+    Bhubaneswar AC Repairing, LG Ac Repairing, Hitachi AC Repairing, Daikin AC, Voltas AC Repiring, AC Service Center in
+    Bhubaneswar, Rajadhani cooling services Services, Rajadhani cooling services Ac Repairing, Rajadhani cooling
+    services Fridge Ac Repairing, Rajadhani cooling services Refridgerator Repairing, refrigerator repair service near
+    me, ac repair in bhubaneswar patia, fridge repair near me, refrigerator price in bhubaneswar, car ac repair in
+    bhubaneswar, car ac repair near me, best ac for small room, fridge mechanic near me, best ac service in bhubaneswar,
+    sulekha ac service centre bbsr, sulekha ac service centre bhubaneswar, Khojakhoji Ac Repairing in Bhubaneswar &
+    Cuttack, samsung mini fridge, freeze mechanic near me, washing machine repair, fridge repair in bhubaneswar, voltas
+    ac service center in bhubaneswar, ac mechanic bhubaneswar, ac repairing course in bhubaneswar, ac repairing
+    bhubaneswar, ac repairing in bhubaneswar, ac mechanic in bhubaneswar, ac repair services in bhubaneswar, car ac
+    repair in bhubaneswar, refrigerator repair in bhubaneswar, ac service bhubaneswar, ac repairing bhubaneswar, samsung
+    ac service bhubaneswar, lg ac service bhubaneswar, lg ac service center bhubaneswar, lg ac service centre
+    bhubaneswar, voltas ac service centre bhubaneswar, voltas ac service center bhubaneswar, samsung ac service centre
+    bhubaneswar, hitachi ac service center bhubaneswar, hitachi ac service centre bhubaneswar, ac installation and
+    repair in bhubaneswar, best ac repair in bhubaneswar, ac repair service near me, fridge repair in bhubaneswar,
+    fridge repair near me, samsung ac service center bhubaneswar, godrej ac service centre bhubaneswar, daikin ac
+    service centre bhubaneswar, ac servicing in bhubaneswar, ac repairing in bhubaneswar, ac service center in
+    bhubaneswar, ac bus service in bhubaneswar, samsung ac service in bhubaneswar, ac service centre in bhubaneswar,
+    bhubaneswar ac, olx ac bhubaneswar, voltas ac bhubaneswar, hitachi ac bhubaneswar, lloyd ac bhubaneswar, ac bus
+    bhubaneswar to puri, carrier ac bhubaneswar, daikin ac bhubaneswar, ac installation and repair in bhubaneswar, ac
+    bhubaneswar, ac amc bhubaneswar, ac on rent at bhubaneswar, hitachi ac dealer bhubaneswar, voltas ac dealer
+    bhubaneswar, bluestar ac dealer bhubaneswar, ac on emi bhubaneswar, ac installation bhubaneswar, ac in bhubaneswar,
+    used ac in bhubaneswar, ac dealers in bhubaneswar, ac showroom in bhubaneswar, ac repair in bhubaneswar, ac buses in
+    bhubaneswar, ac pg in bhubaneswar, kenstar ac bhubaneswar, lg ac bhubaneswar, ac mechanic bhubaneswar, ac nielsen
+    bhubaneswar, voltas ac bhubaneswar office, ac price bhubaneswar, phulwari ac bhubaneswar, quikr bhubaneswar ac, ac
+    repair bhubaneswar, Ac maintenance Contract bhubaneswar, Ac maintenance Service Bhubaneswar, ac on rent bhubaneswar,
+    ac service bhubaneswar, samsung ac service bhubaneswar, lg ac service bhubaneswar, ac for sale bhubaneswar, Ac
+    installation and repairing in Cuttack, AC repairing in KATAK, AC Service in Katak, Cuttack AC, sharp ac bhubaneswar,
+    used ac bhubaneswar, Car Ac Patia Bhubaneswar, used ac Cuttack, Ac Fridge Home Appliances Repairing Bhubaneswar, Ac
+    Repairing in Cuttack, Fridge Repairing in Bhubaneswar, Fridge Repairing in Cuttack, Hiatchi Ac repairing, Bluestar
+    Ac Repairing, Voltas Ac Repairing, Carrier Ac Repairing, Goderj Ac Repair in Bhubaneswar, Godrej Eon Ac Repairing,
+    Lloyd Ac Repairing, Havels lloyd Ac Repairing, Panasonic Ac Repairing Gas filling in Bhubaneswar Nayapalli
+
+    AC, Refridgerator, Home Appliances Repairing Service in Bhubaneswar & Cuttack
+
+
+    Few Popular Service Areas in Bhubaneswar
+    Baramunda | Gopabandhu Nagar | Delta Colony | Surya Nagar | CRPF | Mancheswar | Uttara | VSS Nagar | Rasulgarh |
+    Palasuni | GGP Colony | Rail Kunj | Jaydev Vihar | IRC Village | ID Market | CRP square | Fire Station | Satya Vihar
+    | Jharpada | Laxmisagar | Pandra | New Forest Park | Jagamara | Khandagiri | Patrapada | Gandamunda | Pokhariput |
+    Palaspali | Bhimatangi | Dumduma | Arugul | Sundarpada | Balabhadrapur | Sundarpada | Kantilo | Jatani Road |
+    Ebaranga | Tomando | Kalinga Nagar | Ghatikia | Samantarapur | BJB Nagar | Rajarani Colony | Pandav Nagar |
+    Brahmeswar Bagh | Chintamaniswar | Sai Mandir | Lingaraj Nagar | Gouri Nagar | Bhimtangi | Kapileswar | Kapila
+    prasad | Old Town | Lingaraj Mandir | Kedargouri | Sishupal Garh | Chandrasekharpur | Damana | Station Bazar |
+    Master Canteen | Unit-3 | Infocity | Sailashree Vihar | Niladri Vihar | Rail Vihar | Rental Colony | Nalco Nagar |
+    Gajapati Nagar | Vani Vihar | Salia Sahi | Jaydev Vihar | IRC Village | Patia | Jaydev Vihar | Acharya Vihar | Vani
+    Vihar | Shahid Nagar | Bhoi Sahi | Bhouma Nagar | Unit-4 | Orakal, Andharua | Badaraghunathpur | Bharatpur |
+    Chandaka | Gajapati Nagar | A G Colony | Acharya Vihar | Ashok Nagar | Bapuji Nagar | Bhauma Nagar | Bhoi Nagar |
+    Ekamra Vihar | Forest Park | Ganga Nagar | Keshari Nagar | Kharavella Nagar | MLA Quarters | Government Colony |
+    Madhusudan Nagar | Market Building | Unit-1 | Saheed Nagar | Satya Nagar | Surya Nagar | Unit -2 | Nayapalli |
+    Nandan Kanan Road | Passport Office | KIIT | DAV School | Ravi Talkies | & more..Few Popular Service Areas in
+    Cuttack
+    Tulasipur | Bidanasi | Shankarpur | Ring Road | Barabati | Madhupatna | Press Chaka | Link Road | Baranga | CDA |
+    Sector 5 | Ring Road | Mahanadi Vihar | Sector 6 | Buxi Bazaar | SCB Medical | OMP Square | Taladanda | Canal Road |
+    Sector 7 | Malgodam | Chatra Bazaar | Shankarpur | Daragha Bazaar | Ravenshaw College | Nimchouri | Raja Bagicha |
+    Shelter Colony | Barabati | Barabati Sports Complex | Bajrakabati Road | Gurudwara | Ravenshaw College | Station
+    Road | Railway Station | Pala Mandap | Press Chaka | Shathie Mouja | CDA | Samrat Cinema Hall | SCB Medical |
+    Hariharpur | Mahatab Road | Orissa High Court | Nishamani Talkies | Vishal Mega Mart | Collector Office | Bus Stand
+    | Madhusudan Nagar | Church | Katak Chandi Temple | Mangala Mandir | Badambadi etc.
+</p>
+
 </html>
