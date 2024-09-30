@@ -56,20 +56,78 @@
         }
 
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            padding: 10px 20px;
-            color: white;
-        }
+       .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+      color: white;
+      flex-wrap: wrap; /* This allows items to wrap when the screen is too small */
+  }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-        }
+  .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+  }
+
+  .contact-icons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+  }
+
+  /* Make it mobile responsive */
+  @media (max-width: 768px) {
+      .navbar {
+          flex-direction: column;
+          align-items: flex-start; /* Stack items vertically */
+      }
+
+      .email, .opening-days, .book-now, .contact-icons {
+          padding: 5px 0;
+          text-align: left;
+          width: 100%;
+      }
+
+      .book-now {
+          margin-top: 10px;
+          background-color: #555;
+          padding: 10px;
+          text-align: center;
+          display: block;
+          width: 100%;
+      }
+
+      .contact-icons {
+          justify-content: space-between;
+          width: 100%;
+      }
+
+      .contact-icons img {
+          width: 30px; /* Resize the icons for smaller screens */
+      }
+  }
+
+  /* Adjustments for very small screens */
+  @media (max-width: 480px) {
+      .navbar {
+          padding: 5px 10px;
+      }
+
+      .email, .opening-days {
+          font-size: 14px;
+      }
+
+      .book-now {
+          padding: 10px;
+      }
+
+      .contact-icons img {
+          width: 25px;
+      }
+  }
 
         .services-dropdown {
             position: relative;
