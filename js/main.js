@@ -112,10 +112,10 @@ document.getElementById('bookingForm').addEventListener('submit', function (even
     // Optional: Send data to Telegram (uncomment and adjust for your bot)
 
     const telegramMessage = encodeURIComponent(message);
-    // const telegramBotToken = '7589123215:AAG6E-x1NqACiw2MBY3L2fsnWCsp6TQTTgY';
-    // const chatId = '-1002168382676';
-    const telegramBotToken = '2113644798:AAEuMDxeifbAtrzka5UsM4K4CHm4qqOBjUI';
-    const chatId = '-1001417526920';
+    const telegramBotToken = '7589123215:AAG6E-x1NqACiw2MBY3L2fsnWCsp6TQTTgY';
+    const chatId = '-1002168382676';
+    // const telegramBotToken = '2113644798:AAEuMDxeifbAtrzka5UsM4K4CHm4qqOBjUI';
+    // const chatId = '-1001417526920';
     fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${telegramMessage}`);
 
     // Show the submit banner
