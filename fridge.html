@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refrigerator Repair Services</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            color: #333;
+        }
+        header {
+            background-color: #2b6777;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+        .contact-info {
+            background: #fff;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .contact-info h2 {
+            margin: 0;
+            color: #2b6777;
+            font-size: 1.6rem;
+        }
+        .contact-info p, .contact-info a {
+            margin: 5px 0;
+            font-size: 1rem;
+            color: #555;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .services-section {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .service-box {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .service-box img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .service-box h3 {
+            color: #2b6777;
+            margin: 15px 0 5px;
+            font-size: 1.2rem;
+        }
+        .service-box p {
+            font-size: 0.9rem;
+            padding: 0 15px 20px;
+            color: #555;
+        }
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2b6777;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .call-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #2b6777;
+            color: white;
+            margin-top: 20px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Refrigerator Repair Services</h1>
+    <p>Professional Solutions for Your Home Refrigerator</p>
+</header>
+
+<div class="contact-info">
+    <h2>Contact Us</h2>
+    <p><strong>📍 Address:</strong> Bhubaneswar, Odisha</p>
+    <p><strong>✉️ Email:</strong> <a href="mailto:rajadhanicoolingservice@gmail.com">rajadhanicoolingservice@gmail.com</a></p>
+    <p><strong>📞 Phone:</strong> <a href="tel:+919668700452">+91 9668700452</a></p>
+</div>
+
+<section class="services-section">
+    <!-- Service 1 -->
+    <div class="service-box">
+        <img src="https://source.unsplash.com/300x200/?refrigerator,repair" alt="Compressor Repair">
+        <h3>Compressor Repair</h3>
+        <p>Expert repair services for faulty refrigerator compressors to restore cooling efficiency and prolong the appliance's life.</p>
+    </div>
+    <!-- Service 2 -->
+    <div class="service-box">
+        <img src="https://source.unsplash.com/300x200/?cooling,fridge" alt="Cooling Issues">
+        <h3>Cooling Issues Fix</h3>
+        <p>Get your refrigerator cooling problems resolved quickly and effectively by our skilled technicians.</p>
+    </div>
+    <!-- Service 3 -->
+    <div class="service-box">
+        <img src="https://source.unsplash.com/300x200/?gas,refilling" alt="Gas Refilling">
+        <h3>Gas Refilling</h3>
+        <p>Affordable and precise gas refilling services to ensure consistent cooling for your refrigerator.</p>
+    </div>
+    <!-- Service 4 -->
+    <div class="service-box">
+        <img src="https://source.unsplash.com/300x200/?fridge,maintenance" alt="General Maintenance">
+        <h3>General Maintenance</h3>
+        <p>Prevent breakdowns with regular maintenance services that keep your refrigerator running smoothly.</p>
+    </div>
+</section>
+
+
+<!-- Floating Call Button -->
+<button class="call-button" onclick="window.location.href='tel:+919668700452'">📞</button>
+
+<footer>
+    <p>&copy; 2024 Refrigerator Repair Services. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
