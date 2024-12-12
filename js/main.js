@@ -93,8 +93,8 @@
     // Add floating buttons dynamically
     const floatingButtonsHtml = `
         <div class="floating-buttons">
-            <a href="https://wa.me/1234567890" target="_blank">
-                <img src="whatsapp-icon.png" alt="WhatsApp">
+            <a href="https://wa.me/919668700452" target="_blank">
+                <img src="img/wp.png" alt="WhatsApp">
             </a>
             <a href="https://www.example.com" target="_blank">
                 <img src="link-icon.png" alt="Link">
