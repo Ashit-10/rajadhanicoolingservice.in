@@ -33,7 +33,34 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
-
+<script>
+    .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .floating-buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .floating-buttons a img {
+            width: 30px;
+            height: 30px;
+        }
+        .floating-buttons a:hover {
+            transform: scale(1.1);
+</script>
+    
 <body>
     <!-- Spinner Start -->
     <div id="spinner"
