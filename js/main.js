@@ -11,10 +11,8 @@
     };
     spinner();
 
-
     // Initiate the wowjs
     new WOW().init();
-
 
     // Sticky Navbar
     $(window).scroll(function () {
@@ -24,7 +22,6 @@
             $('.sticky-top').removeClass('shadow-sm').css('top', '-100px');
         }
     });
-
 
     // Back to top button
     $(window).scroll(function () {
@@ -39,13 +36,11 @@
         return false;
     });
 
-
     // Facts counter
     $('[data-toggle="counter-up"]').counterUp({
         delay: 10,
         time: 2000
     });
-
 
     // Header carousel
     $(".header-carousel").owlCarousel({
@@ -60,7 +55,6 @@
             '<i class="bi bi-chevron-right"></i>'
         ]
     });
-
 
     // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({
@@ -84,7 +78,6 @@
         }
     });
 
-
     // Portfolio isotope and filter
     var portfolioIsotope = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
@@ -97,8 +90,55 @@
         portfolioIsotope.isotope({ filter: $(this).data('filter') });
     });
 
+    // Add floating buttons dynamically
+    const floatingButtonsHtml = `
+        <div class="floating-buttons">
+            <a href="https://wa.me/1234567890" target="_blank">
+                <img src="whatsapp-icon.png" alt="WhatsApp">
+            </a>
+            <a href="https://www.example.com" target="_blank">
+                <img src="link-icon.png" alt="Link">
+            </a>
+        </div>
+    `;
+
+    const floatingButtonsStyle = `
+        <style>
+            .floating-buttons {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .floating-buttons a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 60px;
+                height: 60px;
+                background: #25d366;
+                border-radius: 50%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s;
+            }
+            .floating-buttons a img {
+                width: 30px;
+                height: 30px;
+            }
+            .floating-buttons a:hover {
+                transform: scale(1.1);
+            }
+        </style>
+    `;
+
+    $('body').append(floatingButtonsHtml);
+    $('head').append(floatingButtonsStyle);
+
 })(jQuery);
 
+// Your booking form submission logic
 document.getElementById('bookingForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -109,17 +149,11 @@ document.getElementById('bookingForm').addEventListener('submit', function (even
 
     const message = `#New_Booking:\n\nAppliance: ${appliance}\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
     console.log(message);
-    // Optional: Send data to Telegram (uncomment and adjust for your bot)
 
     const telegramMessage = encodeURIComponent(message);
     const telegramBotToken = '7589123215:AAG6E-x1NqACiw2MBY3L2fsnWCsp6TQTTgY';
     const chatId = '-1002168382676';
-    // const telegramBotToken = '2113644798:AAEuMDxeifbAtrzka5UsM4K4CHm4qqOBjUI';
-    // const chatId = '-1001417526920';
     fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${telegramMessage}`);
 
-    // Show the submit banner
-    // Show the alert
     alert("Your booking will be processed and confirmed shortly!");
-    // Reload the page
 });
