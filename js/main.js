@@ -96,8 +96,8 @@
             <a href="https://wa.me/919668700452" target="_blank">
                 <img src="img/wp.png" alt="WhatsApp">
             </a>
-            <a href="https://www.example.com" target="_blank">
-                <img src="link-icon.png" alt="Link">
+            <a href="tel:+919668700452" target="_blank">
+                <img src="img/call.png" alt="Link">
             </a>
         </div>
     `;
